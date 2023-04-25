@@ -20,7 +20,10 @@ export default function Textform(props){
       text.setSelectionRange(0,1000);
       navigator.clipboard.writeText(text.value);
   }
-    
+    const handleonChange=(event)=>{
+      console.log("Onchange")
+        setText(event.target.value)
+    }
     const [text,setText]=useState("Enter your Text")
     // text="nre text" //wrong way to change the state
     // setText("new text") //correct way
@@ -30,7 +33,7 @@ export default function Textform(props){
 <h1>{props.heading}</h1>
 <div className="mb-3">
   <label htmlFor="exampleFormControlTextarea1" className="form-label"></label>
-  <textarea className="form-control"  style={{backgroundColor: props.mode==='light'?'white':'grey',color: props.mode==='light'?'black':'white'}} id="mybox" rows="3" value={text}></textarea>
+  <textarea className="form-control" onChange={handleonChange} style={{backgroundColor: props.mode==='light'?'white':'grey',color: props.mode==='light'?'black':'white'}} id="mybox" rows="3" value={text}></textarea>
 </div>
 <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleloClick}>Convert to Lowercase</button>
