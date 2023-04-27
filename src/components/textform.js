@@ -17,7 +17,7 @@ export default function Textform(props){
     const handlecopy=()=>{
       var text=document.getElementById("mybox")
       text.select();
-      text.setSelectionRange(0,1000);
+      text.setSelectionRange(0,99999);
       navigator.clipboard.writeText(text.value);
   }
     const handleonChange=(event)=>{
