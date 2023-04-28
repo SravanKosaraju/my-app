@@ -21,6 +21,11 @@ export default function Textform(props){
       
       navigator.clipboard.writeText(text.value);
   }
+
+    const handleclear=()=>{
+      setText("");
+    }
+
     const handleonChange=(event)=>{
       console.log("Onchange")
         setText(event.target.value)
@@ -38,6 +43,7 @@ export default function Textform(props){
 </div>
 <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleloClick}>Convert to Lowercase</button>
+<button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleclear}>Clear Text</button>
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handlecopy}>Copy Text</button>
     </div>
     <div className='container my-2' style={{color:props.mode==='light'?'black':'white'}}>
