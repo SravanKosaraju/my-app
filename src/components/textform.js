@@ -26,6 +26,11 @@ export default function Textform(props){
       setText("");
     }
 
+    const handleExtraspaces=()=>{
+      let newtext=text.split(/[ ]+/);
+      setText(newtext.join(" "));
+    }
+
     const handleonChange=(event)=>{
       console.log("Onchange")
         setText(event.target.value)
@@ -45,6 +50,7 @@ export default function Textform(props){
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleloClick}>Convert to Lowercase</button>
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleclear}>Clear Text</button>
 <button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handlecopy}>Copy Text</button>
+<button disabled={text.length===0}className='btn btn-primary mx-1 my-1' onClick={handleExtraspaces}>Remove Extra Spaces</button>
     </div>
     <div className='container my-2' style={{color:props.mode==='light'?'black':'white'}}>
       <h1>Your text summary</h1>
